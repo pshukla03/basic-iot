@@ -1,0 +1,8 @@
+SELECT
+	System.Timestamp AS Time
+	,  AVG(Temperature) AVGTemprature
+	,  AVG(Humidity) AVGHumidity
+FROM
+  [dht11input]
+Group by 
+TumblingWindow(second, 10)

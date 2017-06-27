@@ -1,0 +1,15 @@
+https://github.com/gloveboxes/Arduino-ESP8266-Secure-Http-Azure-IoT-Hub-Client/blob/master/README.md
+
+Why Finger Print?
+IoT Hub Certificate Verification
+Verifies your IoT Hub Server Certificate to mitigate against Man in the Middle Attacks.
+
+How to generate?
+The Server Certificate Fingerprint was generated as follows: -
+From Bash on Ubuntu on Windows (10) or Linux
+1.Run 
+echo -n | openssl s_client -connect IoTCampAU.azure-devices.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > cert.pem
+2.Run
+openssl x509 -noout -in cert.pem -fingerprint
+
+See Certificate Pinning article for more information
